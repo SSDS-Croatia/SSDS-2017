@@ -1,0 +1,8 @@
+# Jupyter notebook
+.ipynb_checkpoints/*
+
+# data
+data/*
+
+# output
+out/*
