@@ -3,6 +3,7 @@
 
 # data
 data/*
+assets/*
 
 # output
 out/*
