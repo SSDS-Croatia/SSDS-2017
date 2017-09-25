@@ -1,4 +1,4 @@
-# SSDS 2017 - 2<sup>nd</sup> Int'l Summer School on Data Science
+# SSDS 2017  - 2<sup>nd</sup> Int'l Summer School on Data Science
 
 ## Center of Research Excellence for Data Science and Advanced Cooperative Systems, Research Unit for Data Science
 
@@ -7,9 +7,9 @@ Hands-on sessions for [2nd International Summer School on Data Science](https://
 ## Table Of Contents
 
 * [Day 1 - Introduction to Tensorflow](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-1)
-* [Day 2 - Convolutional neural networks](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-2)
-* [Day 3 - Character-wise language modeling with LSTMs](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-3)
-* [Day 4 - Autoregressive Generative Networks](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-4)
+* [Day 2 - Convolutional Neural Networks for Image Classification](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-2)
+* [Day 3 - Character-wise Language Modeling with LSTMs](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-3)
+* [Day 4 - Image Segmentation and Object Detection](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-4)
 * [Day 5 - Generative Adversarial Networks](https://github.com/SSDS-Croatia/SSDS-2017/tree/master/Day-5)
 
 
