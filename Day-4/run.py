@@ -43,7 +43,7 @@ if len(sys.argv)>=2:
 	IMG = numpy.zeros((int(maxhw), int(maxhw), 3), dtype=numpy.float32)
 	IMG[0:img.shape[0], 0:img.shape[1], :] = img.astype(numpy.float32)/255.0
 	#
-	LBL = process_image(IMG, thr=0.1)
+	LBL = process_image(IMG, thr=0.2)
 
 	cv2.imwrite('img.jpg', 255*IMG)
 	cv2.imwrite('lbl.jpg', 255*LBL)
