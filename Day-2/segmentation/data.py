@@ -2,7 +2,7 @@ import math
 import numpy as np
 import pickle
 from os.path import join
-
+import PIL.Image as pimg
 
 
 def _shuffle_data(data):
@@ -11,7 +11,6 @@ def _shuffle_data(data):
   shuffled_data = []
   for d in data:
     if type(d) == np.ndarray:
-      # d = np.ascontiguousarray(d[idx])
       d = d[idx]
     else:
       d = [d[i] for i in idx]
@@ -29,21 +28,30 @@ class Dataset():
                 ['vehicle', [0,0,142]]]
   num_classes = len(class_info)
 
-  def __init__(self, split_name, batch_size, shuffle=True):
-    # self.mean = np.array([116.5, 112.1, 104.1])
-    # self.std = np.array([57.92, 56.97, 58.54])
+  def __init__(self, split_name, batch_size, downsample=None, shuffle=True):
     self.mean = np.array([75.205, 85.014, 75.089])
     self.std = np.array([46.894, 47.633, 46.471])
     self.batch_size = batch_size
     self.shuffle = shuffle
     # load the dataset
-    # data_dir = '/home/kivan/datasets/SSDS/cityscapes'
     data_dir = 'local/data/'
     data = pickle.load(open(join(data_dir, split_name+'.pickle'), 'rb'))
-    self.x = data['rgb']
+    self.x = data['rgb']      
     self.y = data['labels']
     self.names = data['names']
-    # self.x = (self.x.astype(np.float32) - self.mean) / self.std
+
+    if downsample is not None and downsample > 1:
+      new_x = []
+      new_y = []
+      img_width = round(self.x.shape[2] / downsample)
+      img_height = round(self.x.shape[1] / downsample)
+      for i in range(self.x.shape[0]):
+        img = pimg.fromarray(self.x[i]).resize((img_width, img_height), pimg.BILINEAR)
+        labels = pimg.fromarray(self.y[i]).resize((img_width, img_height), pimg.NEAREST)
+        new_x.append(img)
+        new_y.append(labels)
+      self.x = np.stack(new_x)
+      self.y = np.stack(new_y)
 
     self.num_examples = self.x.shape[0]
     self.height = self.x.shape[1]
