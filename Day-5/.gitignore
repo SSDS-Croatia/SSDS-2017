@@ -1,9 +1,0 @@
-# Jupyter notebook
-.ipynb_checkpoints/*
-
-# data
-data/*
-assets/*
-
-# output
-out/*
